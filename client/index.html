@@ -61,8 +61,8 @@
 	</div>
 
 </div>
-<div  >
-	 <app></app></div>
+<div id='app'  ><app ></app>
+	 </div>
 <!-- <div ng-init = "books=[{name:'book1',description:'ggggggggggg'},{name:'book2',description:'ggggggggggg'},{name:'book3',description:'ggggggggggg'}]">
 	
 		<p ng-repeat="book in books">
@@ -71,6 +71,24 @@
 		</p>
 
 </div> -->
+<script type="text/javascript">
+	(function (){
+       $.ajax({
+			async: false, 
+  		 	 
+             url: "http://localhost:1128/init",
+              type:'GET',
+              dataType: 'json',
+              success: function(data){
+    		  	console.log(data);
+    		  	window.data=data;
+    		  	// $('#app').append('<app ></app>');
+    		  	
+            } 
 
+        })
+    
+	})();
+</script>
 </body>
 </html>

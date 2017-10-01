@@ -25,7 +25,10 @@ angular.module('book-store')
      {{$ctrl.book.title}}
     </div>
     
-    <div style="margin-top: 20px "><button> downlode  </button> <div>
+    <div style="margin-top: 20px ">
+    <a href={{'..'+$ctrl.book.path}} download>
+     <button>Download</button>
+    </a> <div>
     </div>
     </li>`
 })

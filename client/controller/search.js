@@ -1,7 +1,7 @@
 angular.module('book-store')
-.component('search',{
+  .component('search',{
 	controller:function(){
-		this.books;
+		window.data=this.book;
 		this.sendToken=function(){
 		$.ajax({
 			async: false, 
@@ -10,33 +10,15 @@ angular.module('book-store')
               type:'POST',
               dataType: 'json',
               success: function(data){
+              	console.log(data);
     		  	this.book=data;
-            }, 
-
+            }
         })
-    
       }
-      	
-		
-
 	},
-	
-
-
-
-
 	template: `<div class="form-inline my-2 my-lg-0" >
 						<input ng-model="$ctrl.token" style="width:700px ; margin-top: 9px" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 						<button ng-click ='$ctrl.sendToken()'style=" margin-top: 9px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 						</div>
 						<div><books books='$ctrl.books'/></div>`
-})
-
-
-
-	// template: `<div >
-	// <input
-	// type="text"
-	// />
-	// <button > Search </button>
-	// </div>`
+  })

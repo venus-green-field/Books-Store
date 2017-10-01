@@ -23,7 +23,7 @@ app.post('/search',function (req,res){
        })
     });
 
-	app.get('/',function (req,res){
+	app.get('/init',function (req,res){
 	
 	Book.find({},function(err, result){
         //console.log(result);
