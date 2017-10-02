@@ -34,5 +34,56 @@ userSchema.pre('save', function(next) {
     });
 });
 
+//Roqyia
+exports.loginUser = function(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  User.findOne({ username: username })
+    .exec(function(err, user) {
+      if (!user) {
+        res.redirect('/login');
+      } else {
+        User.comparePassword(password, user.password, function(err, match) {
+          if (match) {
+            User.createSession(req, res, user);
+          } else {
+            res.redirect('/index.html');
+          }
+        });
+      }
+    });
+};
+//mohamed
+  exports.signupUser = function(req,res) {
+      var username = req.body.username ;
+      var password = req.body.password ;
+
+    User.findOne({username : username})
+    .exec(function(err,user) {
+      if(!user) {
+          var newUser = new user({
+            username : username ,
+            password : password
+          });
+          newUser.save(function(err,newUser) {
+            if(err) {
+                res.status(500).send(error);
+            }else{
+              User.createSession = function(req,res,newUser) {
+                return req.session.regenerate(function() {
+                req.session.user = newUser ;
+                redirect("./") ;
+              })
+            }
+          }
+        });
+      }else{
+        console.log("Account already exists") ;
+        redirect("./login")
+      }
+    })
+  };
+
 
 module.exports = User;

@@ -30,7 +30,11 @@ angular.module('book-store')
                         <button ng-click ='$ctrl.sendToken()'style=" margin-top: 9px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </div>
     <ul > 
+
     <book ng-repeat="book in $ctrl.books | filter :$ctrl.token "  
     book="book"/></ul>`
     
 })
+
+// <book ng-repeat="book in $ctrl.books | filter :$ctrl.token "  
+//     book="book"/></ul>`
