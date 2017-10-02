@@ -12,13 +12,13 @@ controller: function(){
 
 
 
-template: `<div><search/></div>
-
-<div><books  books="$ctrl.books"/></div>`
+template: `<div><books  books="$ctrl.books"/></div>`
     
 })
 
+// `<div><search books="$ctrl.books"/></div>
 
+// <div><books  books="$ctrl.books"/></div>`
 
 
 

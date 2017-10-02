@@ -2,7 +2,7 @@ var express = require('express');
 var http=require('http');
 var mongoose =require ('mongoose');
 var db=require('./database/index');
-//var books = require('google-books-search');
+var books = require('google-books-search');
 var bodyParser = require('body-parser');
 var useragent = require('express-useragent');
 var Book=require('./database/model/Book'); 
@@ -10,15 +10,20 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var port = 1128;
-var searchresult;
-
+books.search('Professional JavaScript for Web Developers', function(error, results) {
+    if ( ! error ) {
+        console.log(results);
+    } else {
+        console.log(error);
+    }
+});
 app.use(express.static(__dirname+'/client'));
 app.post('/search',function (req,res){
 	var searchtoken =req.body.token;
     //res.json(searchtoken)
 	Book.find({title:searchtoken},function(err, result){
        searchresult=result;
-        console.log(searchresult);
+        //console.log(searchresult);
         res.json(result)
        })
     });
