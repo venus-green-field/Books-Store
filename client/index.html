@@ -4,15 +4,21 @@
 	<title>Book Store </title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<script src="angular.min.js"></script>
-	<script
-     src="/bower_components/jquery/dist/jquery.js"></script>
+	<script	src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
 	<script src="controller/app.js"></script>
 	<script src="controller/books.js"></script>
 	<script src="controller/book.js"></script>
 	<script src="controller/search.js"></script>
+	<script src="controller/categories.js"></script>
+	<script src="controller/paid.js"></script>
+	<script src="controller/login.js"></script>
+	<script src="controller/signup.js"></script>
+
+
 </head>
 <body ng-app ="book-store">
 	<nav class="navbar navbar-default">
@@ -33,36 +39,43 @@
 					<!-- <form class="form-inline my-2 my-lg-0">
 						<input  style="width: 650px ; margin-top: 9px" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 						<button style=" margin-top: 9px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-						</form> -->
-						<input type="button" value="Login" 
-						style=" margin-top: 9px ; margin-left: 80px" 
-						class="btn btn-outline-success my-2 my-sm-0" 
-						type="submit"
-						onclick="window.location.href='/login.html'"/>
-						
-						<input type="button" value="Sign Up" 
-						style=" margin-top: 9px ; margin-left:80px" 
-						class="btn btn-outline-success my-2 my-sm-0" 
-						type="submit"
-						onclick="window.location.href='/signup.html'"/>
-					
-				</ul>
-			</div>
+					</form> -->
+					<span>
+						<signup/> 
+					</span>
+					<span>
+					    <login/> 
+					</span>
 
+				<!-- 	<input type="button" value="Sign Up" 
+					style=" margin-top: 9px ; margin-left:850px" 
+					class="btn btn-outline-success my-2 my-sm-0" 
+					type="submit"
+					onclick="window.location.href='templates/signup.html'"/> 
+
+					<input type="button" value="Login" 
+					style=" margin-top: 9px ; margin-left: 20px " 
+					class="btn btn-outline-success my-2 my-sm-0" 
+					type="submit"
+					onclick="window.location.href='templates/login.html'"/>
+				-->
+			</ul>
 		</div>
-	</nav>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- 	<div ng-view></div> -->
-			</div>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<!-- 	<div ng-view></div> -->
 		</div>
 	</div>
+</div>
 
 </div>
 <div id='app'  ><app ></app>
-	 </div>
+</div>
 <!-- <div ng-init = "books=[{name:'book1',description:'ggggggggggg'},{name:'book2',description:'ggggggggggg'},{name:'book3',description:'ggggggggggg'}]">
 	
 		<p ng-repeat="book in books">
@@ -70,25 +83,25 @@
 			descreption:{{book.description}}<br>
 		</p>
 
-</div> -->
-<script type="text/javascript">
-	(function (){
-       $.ajax({
-			async: false, 
-  		 	 
-             url: "http://localhost:1128/init",
-              type:'GET',
-              dataType: 'json',
-              success: function(data){
-    		  	console.log(data);
-    		  	window.data=data;
+	</div> -->
+	<script type="text/javascript">
+		(function (){
+			$.ajax({
+				async: false, 
+
+				url: "http://localhost:1128/init",
+				type:'GET',
+				dataType: 'json',
+				success: function(data){
+					console.log(data);
+					window.data=data;
     		  	// $('#app').append('<app ></app>');
     		  	
-            } 
+    		  } 
 
-        })
-    
-	})();
-</script>
+    		})
+
+		})();
+	</script>
 </body>
 </html>

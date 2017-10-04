@@ -1,10 +1,10 @@
-angular.module('book-store',[])
+angular.module('book-store',['angular.filter'])
 .component('app',{
 
 
-controller: function(){
+controller: function($scope){
     this.books=window.data;
-
+   
 },
 
 
@@ -12,10 +12,29 @@ controller: function(){
 
 
 
-template: `<div><books  books="$ctrl.books"/></div>`
-    
+template:  `
+<div>
+
+<div >
+<books  books="$ctrl.books"/>
+</div>
+
+</div>
+
+    `
 })
 
+// <div  class="col-sm-2 sidenav"  style="margin-top:85px">
+// <categories />
+// </div>
+// <div >
+//  <table class="col-sm-2 sidenav" >
+//  <tr>
+//  <td><books  books="$ctrl.books"/></td>
+//  <td><paid/></td>
+//  </tr>
+//  </table>
+//  </div>`
 // `<div><search books="$ctrl.books"/></div>
 
 // <div><books  books="$ctrl.books"/></div>`
