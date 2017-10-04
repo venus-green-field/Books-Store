@@ -2,7 +2,7 @@ angular.module('book-store')
 .component('books',{
 
  bindings: {
-  sbooks:'<',
+ 
   books:'<'
 
 },
@@ -33,7 +33,7 @@ template:`<div class="form-inline my-2 my-lg-0" >
 
 <div>
 <div class="col-sm-2" style="margin-top:50px">
-<div ng-repeat="book in $ctrl.books | unique : 'genre'" >
+<div ng-repeat="book in $ctrl.books | unique : 'gener'" >
 <div class="list-group">
 
 <a href="#" class="list-group-item list-group-item-info" 

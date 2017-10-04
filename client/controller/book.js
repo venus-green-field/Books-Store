@@ -20,7 +20,7 @@ template: `
 <div style="margin-left: 50px;margin-top: 50px ">
 <div>
 
-<img  style="width: 200px ;height = 200px "  src=  {{'..'+$ctrl.book.image}} 
+<img  style="width: 200px ;height = 200px "  src=  {{'../image/'+$ctrl.book.image}} 
 class="btn btn-primary pull-right" 
 data-toggle="modal" 
 data-target="#book-info" 
@@ -34,14 +34,24 @@ ng-click="$ctrl.changeBook($ctrl.book)"/>
 {{$ctrl.book.gener}}
 </div>
 <div style="margin-top: 20px ;font-weight:700 ;font-family: tahoma">
-{{$ctrl.book.auther}}
+{{$ctrl.book.Auther}}
 </div>
 <div style="margin-top: 20px">
-<a href={{'..'+$ctrl.book.path}} download>
+<a href={{'../pdf/'+$ctrl.book.pdf}} download>
 <button>Download</button>
 </a> </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <div class="modal fade" id="book-info"  role="dialog" >
 <div class="modal-dialog">
@@ -55,11 +65,11 @@ ng-click="$ctrl.changeBook($ctrl.book)"/>
 <div class="row content">
 
 <div class="col-sm-4 sidenav">
-<img src={{'..'+$ctrl.book.image}} style=" width:200px ;margin-top:20px ;border-style: solid ;border-width: 8px" />
+<img src={{'../image/'+$ctrl.book.image}} style=" width:200px ;margin-top:20px ;border-style: solid ;border-width: 8px" />
 </div>
 
 <div class="container-fluid">
-<p><span style="font-weight:900"> AUTHOR :</span> {{$ctrl.book.auther}}</p>
+<p><span style="font-weight:900"> AUTHOR :</span> {{$ctrl.book.Auther}}</p>
 <p><span style="font-weight:900"> PAGES : </span> 78</p>
 <p><span style="font-weight:900"> RATING : </span> {{$ctrl.book.rating}}</p>
 <p><span style="font-weight:900"> DESCRIPTION : </span><br>  {{$ctrl.book.descreption}} </p>
