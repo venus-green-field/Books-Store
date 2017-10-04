@@ -3,16 +3,13 @@ angular.module('book-store')
     bindings: {
         book:'<'
     },
-
-
     controller: function(){
         
     	this.activeBook={};
-    	this.changeBook=changeBook;
-    	function changeBook(index){
-    		this.activeBook=index;
-    	}
-
+    	this.changeBook=function (index){
+            this.activeBook=index;
+            console.log( this.activeBook._id);
+        };
 },
 
 template: `
@@ -20,7 +17,7 @@ template: `
 <div style="margin-left: 50px;margin-top: 50px ">
 <div>
 
-<img  style="width: 200px ;height = 200px "  src=  {{'../image/'+$ctrl.book.image}} 
+<img  style="width: 200px ;height = 200px "  src={{'../image/'+$ctrl.book.image}} 
 class="btn btn-primary pull-right" 
 data-toggle="modal" 
 data-target="#book-info" 
@@ -65,14 +62,14 @@ ng-click="$ctrl.changeBook($ctrl.book)"/>
 <div class="row content">
 
 <div class="col-sm-4 sidenav">
-<img src={{'../image/'+$ctrl.book.image}} style=" width:200px ;margin-top:20px ;border-style: solid ;border-width: 8px" />
+<img src={{'../image/'+$ctrl.activeBook.image}} style=" width:200px ;margin-top:20px ;border-style: solid ;border-width: 8px" />
 </div>
 
 <div class="container-fluid">
-<p><span style="font-weight:900"> AUTHOR :</span> {{$ctrl.book.Auther}}</p>
+<p><span style="font-weight:900"> AUTHOR :</span> {{$ctrl.activeBook.Auther}}</p>
 <p><span style="font-weight:900"> PAGES : </span> 78</p>
-<p><span style="font-weight:900"> RATING : </span> {{$ctrl.book.rating}}</p>
-<p><span style="font-weight:900"> DESCRIPTION : </span><br>  {{$ctrl.book.descreption}} </p>
+<p><span style="font-weight:900"> RATING : </span> {{$ctrl.activeBook.rating}}</p>
+<p><span style="font-weight:900"> DESCRIPTION : </span><br>  {{$ctrl.activeBook.description}} </p>
 <p><span style="font-weight:900 ;margin-left:20px"> RATING : </span>
 <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
 <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>

@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var bookSchema = mongoose.Schema({
   title:  String ,
-  auther: String,
-  descreption: String,
+  Auther: String,
+  description: String,
   image:String,
   pdf:String,
   gener:String,

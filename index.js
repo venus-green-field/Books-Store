@@ -124,15 +124,7 @@ app.post('/search',function (req,res){
 	Book1.find({},function(err, result){
         //console.log(result);
         res.json(result)
-        //console.log(result)
-        //res.redirect ('index.html')
     })
-	// Book.find().exec(function(err, result){
- //       //searchresult=result;
-
- //       console.log(result[0]);
- //    });
-	// res.send(searchresult[0]);
 })
 
 // var barr=[ 
@@ -821,15 +813,20 @@ app.post('/search',function (req,res){
 //      if (err) return console.error(err);
 //   // saved!
 // });
-Book1.findOneAndRemove({title:'Personal Confidence & Motivation'},function(err){
-   if(err){
-    console.log(err)
-   }
+// Book1.remove({},function(err, result){
+//         //console.log(result);
+//         // res.json(result)
+//     })
+
+Book1.find({},function(err, result){
+        console.log(result);
+        // res.json(result)
+    })
         //console.log(result);
         //console.log(result)
         //console.log(result)
         //res.redirect ('index.html')
-    })
+   
 
 app.listen(port, function() {
 
