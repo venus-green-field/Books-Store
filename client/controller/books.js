@@ -9,10 +9,20 @@ angular.module('book-store')
 
 controller: function($scope){
   $scope.selected=[];
+  $scope.geners=['Career & Study advice','Engineering','IT & Programming','Natural Sciences','others'];
+  // console.log($scope.selected);
+  $scope.exist=function(index){
+      var  x=$scope.geners[index];
+    var search = $('#search').val();
+    if(search===x){
+      $scope.search='';
+    }else{
+     $scope.search=x;
+    }
 
-  console.log($scope.selected);
-  $scope.exist=function(item){
-    return $scope.selected.indexOf(item)>-1 ;
+console.log(search)
+    // $scope.search=indexOf(item)>-1;
+    // return $scope.selected.indexOf(item)>-1 ;
   }
   $scope.toggleSlection= function(item){
     var idx= $scope.selected.indexOf(item);
@@ -50,24 +60,24 @@ controller: function($scope){
 
 
 template:`<div class="form-inline my-2 my-lg-0" >
-<input ng-model="search" style="width:800px ; margin-top: 2px ;margin-left:300px" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+<input id="search" ng-model="search" style="width:800px ; margin-top: 2px ;margin-left:300px" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 </div>
 
 
 <div>
 <div class="col-sm-2" style="margin-top:50px">
-<div ng-repeat="book in $ctrl.books | unique : 'gener'" >
+<div ng-repeat="book in geners" >
 <div class="list-group">
 
 <a href="#" class="list-group-item list-group-item-info" 
 style="width:220px ;height:75px;text-align: center ;margin-top:5px ;font-weight: 900;font-family: tahoma" ng-model="cc">
- <input type = "checkbox" ng-model='selected'  value={{book.gener}} ng-checked='exist(book)' ng-click='toggleSlection(book)'> {{book.gener}}
+ <input type = "checkbox"  value={{book}}  ng-checked="ischecked" ng-click='exist($index)'> {{book}}
 </a> 
 
 </div>
 </div>
 </div>
-<div class="col-sm-8"> <div class="col-sm-4" ng-repeat="book in $ctrl.books | filter :search |filter : cc  "  
+<div class="col-sm-6"> <div class="col-sm-4" ng-repeat="book in $ctrl.books | filter :search |filter : cc "  
 >      
 <div>
 <div style="margin-left: 50px;margin-top: 50px ">

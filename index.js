@@ -101,22 +101,17 @@ app.post('/login', function(req, res) {
     }
    });
 });
-// books.search('Professional JavaScript for Web Developers', function(error, results) {
-//     if ( ! error ) {
-//         console.log(results);
-//     } else {
-//         console.log(error);
-//     }
-// });
+
 
 app.post('/search',function (req,res){
-  var searchtoken =req.body.token;
-    //res.json(searchtoken)
-  Book1.find({title:searchtoken},function(err, result){
-       searchresult=result;
-        //console.log(searchresult);
-        res.json(result)
-       })
+  console.log(req.body.token);
+  books.search( req.body.token, function(error, results) {
+    if ( ! error ) {
+        res.json(results);
+    } else {
+        console.log(error);
+    }
+});
     })
 
 	app.get('/init',function (req,res){
@@ -818,10 +813,10 @@ app.post('/search',function (req,res){
 //         // res.json(result)
 //     })
 
-Book1.find({},function(err, result){
-        console.log(result);
-        // res.json(result)
-    })
+// Book1.find({},function(err, result){
+//         console.log(result);
+//         // res.json(result)
+//     })
         //console.log(result);
         //console.log(result)
         //console.log(result)
