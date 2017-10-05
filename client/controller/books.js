@@ -1,60 +1,61 @@
 angular.module('book-store')
 .component('books',{
 
- bindings: {
+  bindings: {
 
-  books:'<'
+    books:'<'
 
-},
-
-controller: function($scope){
-  $scope.selected=[];
-  $scope.geners=['Career & Study advice','Engineering','IT & Programming','Natural Sciences','others'];
-  // console.log($scope.selected);
-  $scope.exist=function(index){
-      var  x=$scope.geners[index];
-    var search = $('#search').val();
-    if(search===x){
-      $scope.search='';
-    }else{
-     $scope.search=x;
-    }
-
-console.log(search)
-    // $scope.search=indexOf(item)>-1;
-    // return $scope.selected.indexOf(item)>-1 ;
-  }
-  $scope.toggleSlection= function(item){
-    var idx= $scope.selected.indexOf(item);
-    if(idx> -1){
-      $scope.selected.splice(idx,1);
-    }
-    else{
-      $scope.selected.push(item);
-    }
-    $scope.$ctrl.books = $scope.selected;
-    // console.log($scope.selected)
   },
 
-  this.activeBook={};
-  this.changeBook=function (index){
-    this.activeBook=index;
-    console.log( this.activeBook);
-  }
-  // this.book;
-  // this.sendToken=function(){
-  //   $.ajax({
-  //     async: false, 
-  //     data:{token:this.token},
-  //     url: "http://localhost:1128/search",
-  //     type:'POST',
-  //     dataType: 'json',
-  //     success: function(data){
-  //       console.log(data);
-  //       this.book=data;
-  //     }
-  //   })
-  // }
+  controller: function($scope){
+    //This part to store comment in the database and bring all the comments on the book in the database
+    this.coment;
+    this.coments;
+    this.sendComent=function(){
+      $.ajax({
+           async: false, 
+           data:{
+            id : this.activeBook._id ,
+            coment:this.coment
+           },
+           url: "http://localhost:1128/coment",
+           type:'POST',
+           dataType: 'json',
+           success: function(result){
+             $scope.$ctrl.coments=result;
+             console.log($scope.$ctrl.coments)
+           }
+      })
+    }
+    //this part to handle the filter of catogories 
+    $scope.selected=[];
+    $scope.geners=['Career & Study advice','Engineering','IT & Programming','Natural Sciences','others'];
+    
+    $scope.exist=function(index){
+      var  gener=$scope.geners[index];
+      var search = $('#search').val();
+      if(search===gener){
+        $scope.search='';
+      }else{
+       $scope.search=gener;
+      }
+    }
+    $scope.toggleSlection= function(item){
+      var idx= $scope.selected.indexOf(item);
+      if(idx> -1){
+        $scope.selected.splice(idx,1);
+      }
+      else{
+        $scope.selected.push(item);
+      }
+      $scope.$ctrl.books = $scope.selected;
+    },
+   // this function determine the book clicked in the modal
+    this.activeBook={};
+    this.changeBook=function (index){
+      this.activeBook=index;
+    }
+  
 },
 
 
@@ -71,7 +72,7 @@ template:`<div class="form-inline my-2 my-lg-0" >
 
 <a href="#" class="list-group-item list-group-item-info" 
 style="width:220px ;height:75px;text-align: center ;margin-top:5px ;font-weight: 900;font-family: tahoma" ng-model="cc">
- <input type = "checkbox"  value={{book}}  ng-checked="ischecked" ng-click='exist($index)'> {{book}}
+<input type = "checkbox"  value={{book}}  ng-checked="ischecked" ng-click='exist($index)'> {{book}}
 </a> 
 
 </div>
@@ -133,21 +134,29 @@ ng-click="$ctrl.changeBook(book)"/>
 <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
 <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
 </p>
+
 <form method='post'>
-  Comment:<br />
-  <textarea name='comment' id='comment'></textarea><br />
-
- <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
-
- <input type='submit' value='Send' />  
+Comment:<br />
+<textarea ng-model="$ctrl.coment" name='comment' id='comment'></textarea><br />
+<input  ng-click ='$ctrl.sendComent()' type='submit' value='Send' />  
 </form>
 </div>
+
+<div ng-repeat ="coment in $ctrl.coments" >
+<div href="#" class="list-group-item list-group-item" 
+style="width:500px ;height:75px;text-align: left ;margin-top:5px;margin-left:200px ;font-weight: 900;font-family: tahoma" >
+{{coment.text}}
+</div> 
+
+
 </div>
 </div>
 </div>
+
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
+
 </div>
 
 </div>

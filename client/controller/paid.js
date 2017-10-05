@@ -1,33 +1,21 @@
+//this component for displaying google results search api
 angular.module('book-store')
-.component('paid',{
-	// bindings: {
-	// 	book:'<'
-	// },
-
-
-	controller: function($scope){
-		console.log('hi')
+  .component('paid',{
+	 controller: function($scope){
 		this.books;
+    //this function grap thae data from the server using api(google search api)
 		this.sendToken=function(){
         $.ajax({
-           // async: false, 
+             //async: false, 
              data:{token:this.token},
              url: "http://localhost:1128/search",
-              type:'POST',
-              dataType: 'json',
-              success: function(result){
-              	$scope.$ctrl.books=result;
-                console.log($scope.$ctrl.books[0])
-               
-         }
-                
-
-                //window.location='google.html'
-                // window.data=result;
-                // console.log(window.data)
-            
+             type:'POST',
+             dataType: 'json',
+             success: function(result){
+              	$scope.$ctrl.books=result;               
+             }            
         })
-      }
+    }
 },
 
 template: `<div >

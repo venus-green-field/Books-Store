@@ -1,5 +1,5 @@
+//This model to store books information
 var mongoose = require('mongoose');
-
 var bookSchema = mongoose.Schema({
   title:  String ,
   Auther: String,
