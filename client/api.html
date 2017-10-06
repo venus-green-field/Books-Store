@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Book Store </title>
+	<meta name="viewpoint" content="width=device-width">
+    <meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="angular.min.js"></script>
+	<script	src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+	<script src="controller/app.js"></script>
+	<script src="controller/books.js"></script>
+	<script src="controller/book.js"></script>
+	<script src="controller/search.js"></script>
+	<script src="controller/categories.js"></script>
+	<script src="controller/paid.js"></script>
+	<script src="controller/login.js"></script>
+	<script src="controller/signup.js"></script>
+
+
+</head>
+<body ng-app ="book-store">
+    
+    <!-- Header -->
+	<header>
+	<div class= "container">
+		<div id="branding">
+			<h1><span class='highlight'>Book</span> Store</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.html"> Home</a></li>
+				<li><a href="index.html"> About</a></li>
+				<li  class='current'><a href="api.html"> Search API</a></li>
+				<li><signup/></li>
+				<li><login/></li>
+			</ul>
+
+		</nav>
+	</div>	
+   	</header>
+
+
+    <!--middle-->
+     <div id='app'>
+   	 <div class="container1" style="margin-top: 50px">
+   	 <paid/>
+     </div>
+   	 </div>
+    
+
+
+   	<!-- footer -->
+   	<footer>
+   		<p> Here is footer</p>
+   	</footer>
+  
+
+</body>
+</html>

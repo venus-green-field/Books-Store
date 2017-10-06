@@ -2,6 +2,10 @@
 <html >
 <head>
 	<title>Book Store </title>
+	<meta name="viewpoint" content="width=device-width">
+    <meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -17,79 +21,55 @@
 	<script src="controller/paid.js"></script>
 	<script src="controller/login.js"></script>
 	<script src="controller/signup.js"></script>
-	
 
 
 </head>
 <body ng-app ="book-store">
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Bookstore</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-left">
-					<!-- <search/> -->
-					
-					<!-- <form class="form-inline my-2 my-lg-0">
-						<input  style="width: 650px ; margin-top: 9px" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-						<button style=" margin-top: 9px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					</form> -->
-					<span>
-						<signup/> 
-					</span>
-					<span>
-					    <login/> 
-					</span>
-
-				<!-- 	<input type="button" value="Sign Up" 
-					style=" margin-top: 9px ; margin-left:850px" 
-					class="btn btn-outline-success my-2 my-sm-0" 
-					type="submit"
-					onclick="window.location.href='templates/signup.html'"/> 
-
-					<input type="button" value="Login" 
-					style=" margin-top: 9px ; margin-left: 20px " 
-					class="btn btn-outline-success my-2 my-sm-0" 
-					type="submit"
-					onclick="window.location.href='templates/login.html'"/>
-				-->
+    
+    <!-- Header -->
+	<header>
+	<div class= "container">
+		<div id="branding">
+			<h1><span class='highlight'>Book</span> Store</h1>
+		</div>
+		<nav>
+			<ul>
+				<li class='current'><a href="index.html"> Home</a></li>
+				<li><a href="about.html"> About</a></li>
+				<li><a href="api.html"> Search API</a></li>
+				<li><signup/></li>
+				<li><login/></li>
+                 
 			</ul>
-		</div>
 
-	</div>
-</nav>
+		</nav>
+	</div>	
+   	</header>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<!-- 	<div ng-view></div> -->
-		</div>
-	</div>
-</div>
-
-</div>
-<div id='app'  ><app ></app>
-</div>
-<!-- <div ng-init = "books=[{name:'book1',description:'ggggggggggg'},{name:'book2',description:'ggggggggggg'},{name:'book3',description:'ggggggggggg'}]">
-	
-		<p ng-repeat="book in books">
-			name:{{book.name}}<br>
-			descreption:{{book.description}}<br>
-		</p>
-
-	</div> -->
+    <!-- Section -->
+    <!-- top -->
+   	<section id='showcase'>
+   	 <div class='container'>
+   	 	<p> There Is NO Friend <br>
+   	 	                         As Loyal As Book</p>
+   	 </div>	
+   	</section>
+    <!--middle-->
+     <div id='app'>
+   	 <div class="container1">
+   	 <books/>
+     </div>
+   	 </div>
+    
+  
+   	<!-- footer -->
+   	<footer>
+   		<p> Here is footer</p>
+   	</footer>
 	<script type="text/javascript">
-		//this function bring the data from the server and store it in thr windoe.data variable to start navigate it to the components
 		(function (){
 			$.ajax({
-				async: false, 
+				// async: false, 
 
 				url: "http://localhost:1128/init",
 				type:'GET',
@@ -97,8 +77,7 @@
 				success: function(data){
 					console.log(data);
 					window.data=data;
-    		  	// $('#app').append('<app ></app>');
-    		  	
+    		      	
     		  } 
 
     		})

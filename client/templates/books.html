@@ -1,10 +1,117 @@
-<ul >
-  <!-- <book
-    ng-repeat="book in $ctrl.books"
-    book="book"
-    /> -->
-    <li>hi</li>
-     <li>hi</li> 
-     <li>hi</li> 
-     <li>hi</li>
-</ul> 
+
+
+<!-- design input search -->
+<section id='newsletter'>
+	<div class='container'>
+		<h1>  </h1>
+		<form>
+			<input id= 'search' ng-model="search" class="form-control mr-sm-2" 
+			type="text" placeholder="Search" aria-label="Search" style=" border-radius: 25px;padding-left: 10px">
+		</form>	
+	</div>
+</section>
+
+
+<!-- gener list -->
+<div>
+	<div class="col-sm-2" style="margin-top:50px ">
+		<div ng-repeat="book in $ctrl.books | unique : 'gener'" >
+			<div class="list-group" >
+				<a href="#" class="list-group-item list-group-item-info"  
+				style="width:100% ;height:75px;text-align: left ;margin-top:5px ;font-weight: 900;font-family: tahoma; border-radius: 25px " ng-model="cc" >
+				<input type = "checkbox" ng-model='selected'  value={{book.gener}} ng-checked="ischecked" ng-click='exist($index)'> {{book.gener}}
+			</a> 
+		</div>
+	</div>
+</div>
+
+<!-- books  -->
+<div class="col-sm-8"> 
+	<div  class="col-sm-4" ng-repeat="book in $ctrl.books | filter :search | filter : cc" >
+		<div style='float:center;'>
+			<div style=" margin-left:44%;margin-top: 50px ">
+				<div>
+				    <!-- when you click on the image in will popup with details -->
+					<img  style="width: 155px ;height: 200px"  src=  {{'../image/'+book.image}} 
+					class="btn btn-primary pull-right" 
+					data-toggle="modal" 
+					data-target="#book-info" 
+					ng-click="$ctrl.changeBook(book)"/>
+				</div>
+				<div>
+					<div style="margin-top: 20px;font-weight:800 ;font-family: tahoma">
+						{{book.title}}
+					</div>
+					<div style="margin-top: 20px;font-weight:700 ;font-family: tahoma ">
+						{{book.gener}}
+					</div>
+					<div style="margin-top: 20px ;font-weight:700 ;font-family: tahoma">
+						{{book.Auther}}
+					</div>
+					<div style="margin-top: 20px ;color: black">
+						<a href={{'../pdf/'+ book.pdf}}  download style="color: black;font-weight: bold">
+							<button class='downlodebtn'>Download</button>
+						</a> </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- modal for book detail -->
+		<div class="modal fade" id="book-info"  role="dialog">
+			<div class="modal-dialog" style="width :60%">
+				<div class="modal-content" style="width :100%">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3>{{$ctrl.activeBook.title}}</h3>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row content">
+
+								<div class="col-sm-4 sidenav">
+									<img src={{'../image/'+$ctrl.activeBook.image}} style=" width:200px ;margin-top:20px ;border-style: solid ;border-width: 8px" />
+									<p style='margin-top: 20px'><span style="font-weight:900 ;margin-left:20px " > RATING : </span>
+										<span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
+										<span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>
+										<span><input type="radio" name="rating" id="str3" value="3"><label for="str3"></label></span>
+										<span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
+										<span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+									</p>
+								</div>
+								<div class="col-sm-8 sidenav"> <div class="container-fluid">
+									<p><span style="font-weight:900"> AUTHOR :</span> {{$ctrl.activeBook.Auther}}</p>
+									<p><span style="font-weight:900"> PAGES : </span> {{$ctrl.activeBook.pages}}</p>
+									<p><span style="font-weight:900"> RATING : </span> {{$ctrl.activeBook.rating}}</p>
+									<p><span style="font-weight:900"> DESCRIPTION : </span><br> {{$ctrl.activeBook.description}}</p>
+
+								</div>
+							</div>
+						</div>
+						<div class="row content" >
+							<div class="col-sm-1 sidenav"></div>
+							<form method='post' class="col-sm-11 sidenav" >
+								<p style="font-weight:900 ">Comment:</p> 
+								<textarea ng-model="$ctrl.coment" name='comment' id='comment' style="width: 70%"></textarea><br />
+								<input class='sendbtn' ng-click ='$ctrl.sendComent()' type='submit' value='Send' />  
+							</form>
+						</div>
+						<div ng-repeat ="coment in $ctrl.coments" >
+							<div href="#" class="list-group-item list-group-item" 
+							style="width:500px ;height:75px;text-align: left ;margin-top:5px;margin-left:150px ;font-weight: 900;font-family: tahoma" >
+							{{coment.text}}
+						</div> 
+
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+

@@ -64,6 +64,7 @@ app.post('/signup', function(req, res) {
 //create the user session 
 var createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
+    console.log( req.session)
     req.session.user = newUser;
     res.redirect('index.html');
   });
@@ -86,13 +87,13 @@ app.post('/login', function(req, res) {
     //check if the user in the database or not 
     User.findOne({ username: username }).exec(function(err, user) {
      if (!user) {
-       res.redirect('/login.html');
+       res.redirect('/login');
      } else {
        comparePassword(password, function(err, match) {
         if (match) {
           User.createSession(req, res, user);
         } else {
-          res.redirect('/index.html');
+          res.redirect('/login');
         }
       });
      }
@@ -103,6 +104,7 @@ app.post('/login', function(req, res) {
 //this part for search in google Api
 app.post('/search',function (req,res){
   books.search( req.body.token, function(error, results) {
+    console.log(req.session)
     if ( ! error ) {
       res.json(results);
     } else {

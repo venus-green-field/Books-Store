@@ -1,0 +1,33 @@
+
+<!-- serach Api -->
+<section id='newsletter'>
+	<div class='container'>
+		<h3> Google Search API </h3>
+		<form>
+			<input ng-model="$ctrl.token"  class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+			<button ng-click ='$ctrl.sendToken()' style=" margin-top: 9px; background: #ff9900" 
+			class="btn btn-outline-success my-2 my-sm-0" type="submit" '>Search</button>
+		</form>	
+	</div>
+</section>
+
+<div class="col-sm-2" style="margin-top:50px">
+</div>
+<!-- result search of google API  -->
+<div class="col-sm-8" style="margin-top:50px">
+	<div class="col-sm-4" style="margin-top: 20px" ng-repeat ='book in $ctrl.books'>
+		<div style='float:center;'>
+			<div style=" margin-left:44%;margin-top: 50px ">
+				<div>
+					<img src={{book.thumbnail}} style=" width:200px;height: 300px ;margin-top:20px ;border-style: solid "
+					 />
+				</div>
+				<!-- <div>{{book.title}}</div> -->
+				<div style="margin-top: 20px"><a href ={{book.link}}  style="font-weight: bold">{{book.title}}</a></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+

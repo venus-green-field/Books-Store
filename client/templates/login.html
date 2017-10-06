@@ -1,0 +1,37 @@
+<!--login button when you click on the buttn it will popup with anew window to fill the information -->
+<input type="button" value="Login" 
+ style=" background: #ff9900"
+ class="btn btn-outline-success my-2 my-sm-0" 
+ type="submit"
+ onclick="document.getElementById('id01').style.display='block'"  "/>
+<div id="id01" class="modal">
+
+     <!-- style for popup form from this website https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal -->
+
+    	<form class="modal-content animate" action="/login" method='post'>
+		<div class="imgcontainer">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<h3 style="color: black">Login</h3>
+
+		</div>
+
+		<div class="container" style="width:100%">
+			<div>
+				<label style="color: black"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" class="form-control mr-sm-2"  name="username" required  style="width:90%">
+			</div>
+			<div>
+				<label style="color: black"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password"  class="form-control mr-sm-2"  name="password" required style="width:90%">
+			</div> 
+		</div>
+
+		<div class="container" style="background-color:#f1f1f1 ; width:100%">
+			<p>
+				<a href="/signup.js" style="color: black">Create anew Account </a>
+				<p>
+					<button type="submit" style="margin-right:50px;float: right;" class="submitbtn">Login</button>
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+				</div>
+			</form>
+		</div>
