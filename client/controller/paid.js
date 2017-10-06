@@ -8,7 +8,7 @@ angular.module('book-store')
         $.ajax({
              //async: false, 
              data:{token:this.token},
-             url: "http://localhost:1128/search",
+             url: "/search",
              type:'POST',
              dataType: 'json',
              success: function(result){

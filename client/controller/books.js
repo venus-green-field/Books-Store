@@ -12,7 +12,7 @@ angular.module('book-store',['angular.filter'])
             id : this.activeBook._id ,
             coment:this.coment
            },
-           url: "http://localhost:1128/coment",
+           url: "/coment",
            type:'POST',
            dataType: 'json',
            success: function(result){
