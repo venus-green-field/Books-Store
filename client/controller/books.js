@@ -1,12 +1,5 @@
 angular.module('book-store',['angular.filter'])
 .component('books',{
-
-  // bindings: {
-
-  //   books:'<'
-
-  // },
-
   controller: function($scope){
     //This part to store comment in the database and bring all the comments on the book in the database
     this.books=window.data;
