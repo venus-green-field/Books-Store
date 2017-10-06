@@ -481,7 +481,15 @@ app.get('/init',function (req,res){
 //      if (err) return console.error(err);
 //   // saved!
 // }) 
-
+Book1.find({},function (err,result){
+  if(err){
+    console.log(err);
+  }
+    else {
+      console.log(result)
+    }
+  
+});
 //server creating 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
