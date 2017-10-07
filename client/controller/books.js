@@ -1,11 +1,7 @@
 angular.module('book-store',['angular.filter'])
 .component('books',{
 
-  // bindings: {
-
-  //   books:'<'
-
-  // },
+ 
 
   controller: function($scope){
     //This part to store comment in the database and bring all the comments on the book in the database
@@ -19,7 +15,7 @@ angular.module('book-store',['angular.filter'])
             id : this.activeBook._id ,
             coment:this.coment
            },
-           url: "http://localhost:1128/coment",
+           url: "/coment",
            type:'POST',
            dataType: 'json',
            success: function(result){
