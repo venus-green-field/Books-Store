@@ -72,10 +72,11 @@
 	<script type="text/javascript">
 		(function (){
 			$.ajax({
-				// async: false, 
+				 async: false, 
 
 				url: "/init",
 				type:'GET',
+
 				dataType: 'json',
 				success: function(data){
 					console.log(data);
