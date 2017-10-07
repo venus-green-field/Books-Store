@@ -5,7 +5,7 @@ var mongoose =require ('mongoose');
 var db=require('./database/index');
 var books = require('google-books-search');
 var bodyParser = require('body-parser');
-var Book1=require('./database/model/Book1'); 
+var books=require('./database/model/books'); 
 //var User=require('./database/model/User');
 var Review=require('./database/model/Review');
 var session=require('express-session'); 
@@ -104,7 +104,7 @@ var port=process.env.PORT ||1128;
 //this part for search in google Api
 app.post('/search',function (req,res){
   books.search( req.body.token, function(error, results) {
-    console.log(req.session)
+    //console.log(req.session)
     if ( ! error ) {
       res.json(results);
     } else {
@@ -132,7 +132,7 @@ app.post('/coment',function (req,res){
 //this get to send all the books data from the database to the client 
 //it will recived in index.html page 
 app.get('/init',function (req,res){
-  Book1.find({},function(err, result){
+  books.find({},function(err, result){
     res.json(result)
   })
 })
