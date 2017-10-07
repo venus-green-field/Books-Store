@@ -1,9 +1,15 @@
 angular.module('book-store',['angular.filter'])
 .component('books',{
+
+  // bindings: {
+
+  //   books:'<'
+
+  // },
+
   controller: function($scope){
     //This part to store comment in the database and bring all the comments on the book in the database
     this.books=window.data;
-    
     this.coment;
     this.coments;
     this.sendComent=function(){
@@ -13,7 +19,7 @@ angular.module('book-store',['angular.filter'])
             id : this.activeBook._id ,
             coment:this.coment
            },
-           url: "/coment",
+           url: "http://localhost:1128/coment",
            type:'POST',
            dataType: 'json',
            success: function(result){
@@ -45,10 +51,10 @@ angular.module('book-store',['angular.filter'])
       }
       $scope.$ctrl.books = $scope.selected;
     },
-   // this function determine the book clicked in the modal 
+   // this function determine the book clicked in the modal
     this.activeBook={};
     this.changeBook=function (index){
-      $scope.$ctrl.activeBook=index;
+      this.activeBook=index;
     }
   
 },

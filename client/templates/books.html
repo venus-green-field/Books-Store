@@ -5,7 +5,7 @@
 	<div class='container'>
 		<h1>  </h1>
 		<form>
-			<input id= 'search' ng-model="search" class="form-control mr-sm-2" 
+			<input id='search' ng-model="search" class="form-control mr-sm-2" 
 			type="text" placeholder="Search" aria-label="Search" style=" border-radius: 25px;padding-left: 10px">
 		</form>	
 	</div>
@@ -93,7 +93,7 @@
 							<form method='post' class="col-sm-11 sidenav" >
 								<p style="font-weight:900 ">Comment:</p> 
 								<textarea ng-model="$ctrl.coment" name='comment' id='comment' style="width: 70%"></textarea><br />
-								<input class='sendbtn' ng-click ='$ctrl.sendComent()' type='submit' value='Send' />  
+								<input class='sendbtn' ng-click ='$ctrl.sendComent()' type='submit' value='Send' onClick='reset ()'/>  
 							</form>
 						</div>
 						<div ng-repeat ="coment in $ctrl.coments" >

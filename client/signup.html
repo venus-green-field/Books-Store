@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Book Store </title>
+	<meta name="viewpoint" content="width=device-width">
+    <meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="angular.min.js"></script>
+	<script	src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+	<script src="controller/app.js"></script>
+	<script src="controller/books.js"></script>
+	<script src="controller/book.js"></script>
+	<script src="controller/search.js"></script>
+	<script src="controller/categories.js"></script>
+	<script src="controller/paid.js"></script>
+	<script src="controller/login.js"></script>
+	<script src="controller/signup.js"></script>
+
+
+</head>
+<body ng-app ="book-store">
+    
+    <!-- Header -->
+	<header>
+	<div class= "container">
+		<div id="branding">
+			<h1><span class='highlight'>Book</span> Store</h1>
+		</div>
+		<nav>
+			<ul>
+				<li ><a href="index.html"> Home</a></li>
+				<li><a href="about.html"> About</a></li>
+				<li><a href="api.html">Google Search </a></li>
+				<li ><a href="login.html"> Login</a></li>
+				<li class='current'><a href="signup.html"> Sign Up</a></li>
+			<!-- 	<li><signup/></li>
+				<li><login/></li> -->
+				
+   			</ul>
+
+		</nav>
+	</div>	
+   	</header>
+
+    <!-- Section -->
+    <!-- top -->
+ <!--   	<section id='showcase'>
+   	 <div class='container'>
+   	 	<p> There Is NO Friend <br>
+   	 	                         As Loyal As Book</p>
+   	 </div>	
+   	</section -->>
+    <!--middle-->
+     <div id='app'>
+   	 <div class="container1">
+   	<form class="modal-content animate" action="/signup" method='post'>
+	<div class="imgcontainer">
+	<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<h3 style="color: black">Sign up</h3>
+	</div>
+
+	<div class="container" style="width:100%" >
+
+	<div>
+	<label style="color: black"><b>Username</b></label>
+	<input type="text" placeholder="Enter Username" name="username" class="form-control mr-sm-2" required  style="width:90%">
+	</div>
+	<div>
+	<label style="color: black"><b>Password</b></label>
+	<input type="password" placeholder="Enter Password" name="password" class="form-control mr-sm-2" required style="width:90%">
+	</div> 
+	</div>
+
+	<div class="container" style="background-color:#f1f1f1 ; width:100%">
+	<p>
+	<a href="/login" style="color: black">Login to your account </a>
+	<p>
+	<button type="submit" style="margin-right:50px;float: left;" class="submitbtn">Sign Up</button>
+	<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+	</div>
+	</form>
+     </div>
+   	 </div>
+    
+  
+   	<!-- footer -->
+   	<footer>
+   	<p>&copy; 2017 BookStore.com<p>
+   	</footer>
+	
+</body>
+</html>
