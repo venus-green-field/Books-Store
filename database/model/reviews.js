@@ -6,5 +6,5 @@ var reviwSchema = mongoose.Schema({
 	rating: Number,
 	userid:String
 })
-var Review = mongoose.model('Review', reviwSchema);
-module.exports = Review;
+var reviews = mongoose.model('reviews', reviwSchema);
+module.exports = reviews;

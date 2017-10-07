@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
   username: {type: String, index: {unique: true} },
   password: String,
 })
-var User = mongoose.model('User', userSchema);
+var users = mongoose.model('User', userSchema);
 //this for encrypt password data
 userSchema.pre('save', function(next) { 
   var cipher = Promise.promisify(bcrypt.hash);
@@ -16,4 +16,4 @@ userSchema.pre('save', function(next) {
     next();
   });
 });
-module.exports = User;
+module.exports = users;
