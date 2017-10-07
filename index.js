@@ -131,7 +131,7 @@ app.post('/coment',function (req,res){
   })
 //this get to send all the books data from the database to the client 
 //it will recived in index.html page 
-app.get('/init',function (req,res){
+app.get('/',function (req,res){
   Book1.find({},function(err, result){
     res.json(result)
   })
