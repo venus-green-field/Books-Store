@@ -13,5 +13,5 @@ var bookSchema = mongoose.Schema({
   pages:Number,
   publisher:String
 });
-var Book1 = mongoose.model('Book', bookSchema);
-module.exports = Book1;
+var books = mongoose.model('books', bookSchema);
+module.exports = books;
