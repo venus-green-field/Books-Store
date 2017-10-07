@@ -6,7 +6,7 @@ var db=require('./database/index');
 var books = require('google-books-search');
 var bodyParser = require('body-parser');
 var Book1=require('./database/model/Book1'); 
-//var User=require('./database/model/User');
+var User=require('./database/model/User');
 var Review=require('./database/model/Review');
 var session=require('express-session'); 
 var app = express();
@@ -131,7 +131,7 @@ app.post('/coment',function (req,res){
   })
 //this get to send all the books data from the database to the client 
 //it will recived in index.html page 
-app.get('/',function (req,res){
+app.get('/init',function (req,res){
   Book1.find({},function(err, result){
     res.json(result)
   })
