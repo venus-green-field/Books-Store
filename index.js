@@ -41,7 +41,7 @@ app.post('/signup', function(req, res) {
       .exec(function(err, user) {
         //if the user dosen't exsist 
         if (!user) {
-          var newUser = new User({
+          var newUser = new users({
             username: username,
             password: password
           });
